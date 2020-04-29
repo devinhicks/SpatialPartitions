@@ -87,6 +87,13 @@ namespace Spatial_Partitions
         // Update is called once per frame
         void Update()
         {
+            // to switch to production
+            if (Input.anyKeyDown)
+            {
+                SceneManager.LoadScene(1);
+            }
+            //
+            
             timer = new Stopwatch();
             timer.Start();
 
