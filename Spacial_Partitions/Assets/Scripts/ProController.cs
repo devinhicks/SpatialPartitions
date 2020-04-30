@@ -8,6 +8,9 @@ namespace Spatial_Partitions
 {
     public class ProController : MonoBehaviour
     {
+        public Camera topView;
+        public Camera sideView;
+
         public GameObject friendlyObj;
         public GameObject enemyObj;
 
@@ -39,6 +42,10 @@ namespace Spatial_Partitions
         // Start is called before the first frame update
         void Start()
         {
+            //set camera
+            topView.enabled = true;
+            sideView.enabled = false;
+
             // create a new grid
             grid = new Grid((int)mapWidth, cellSize);
 
@@ -81,9 +88,10 @@ namespace Spatial_Partitions
         void Update()
         {
             // to switch to development
-            if (Input.anyKeyDown)
+            if (Input.GetKeyDown(KeyCode.S))
             {
-                SceneManager.LoadScene(0);
+                topView.enabled = !topView.enabled;
+                sideView.enabled = !sideView.enabled;
             }
             //
 
